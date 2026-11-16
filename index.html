@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0a101c" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+<title>ResearchOS TECT | Autonomy &amp; Control</title>
+<link rel="stylesheet" href="./styles.css" />
+<script type="module" src="./src/app.mjs"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-symbol" aria-hidden="true">◈</div><div><strong>RESEARCH<span>OS</span></strong><small>TECT / AUTONOMY LAB</small></div></div>
+    <div class="sidebar-kicker">RESEARCH WORKSPACE <span>01 / 26</span></div>
+    <nav aria-label="Sections" id="nav"></nav>
+    <div class="sidebar-bottom">
+      <div class="local-badge"><span class="pulse"></span> LOCAL SIMULATION</div>
+      <p>Synthetic systems only. No hardware connections or remote telemetry.</p>
+      <div class="sidebar-version">ResearchOS TECT <span>v1.0.0</span></div>
+    </div>
+  </aside>
+  <main class="main-panel">
+    <header class="topbar">
+      <div class="header-identity"><button type="button" class="icon-button mobile-toggle" id="menu-toggle" aria-label="Toggle navigation">☰</button><div><div class="breadcrumb">RESEARCHOS / <span id="breadcrumb">OVERVIEW</span></div><h1 id="page-title">Autonomy Overview</h1></div></div>
+      <div class="header-actions"><span class="tag">● SIMULATION ENVIRONMENT</span><button class="btn btn-muted" id="export-top" type="button">↧ Export study</button><button class="btn btn-accent" id="run-top" type="button">▶ Run experiments</button></div>
+    </header>
+    <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+    <div class="main-content" id="content"></div>
+    <footer class="app-footer"><span>RESEARCHOS TECT / CONTROL SYSTEMS LAB</span><span>INDEPENDENT RESEARCH PROTOTYPE · UNVALIDATED FOR REAL-WORLD CONTROL</span></footer>
+  </main>
+</div>
+</body>
+</html>

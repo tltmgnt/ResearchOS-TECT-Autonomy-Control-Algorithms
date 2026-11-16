@@ -1,0 +1,30 @@
+name: Validate research MVP
+on:
+  push:
+  pull_request:
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Validate syntax
+        run: |
+          node --check src/model.mjs
+          node --check src/app.mjs
+          node --check server.mjs
+          node --check cli.mjs
+          node --check tools/build.mjs
+      - name: Unit tests and static build
+        run: npm run check
+      - name: Headless CLI smoke test
+        run: |
+          node cli.mjs examples/study.json results.json
+          node cli.mjs examples/study.json results.csv
+          node cli.mjs examples/study.json report.md
+          test -s results.json && test -s results.csv && test -s report.md
